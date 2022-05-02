@@ -15,7 +15,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String accountTableQuery = "create table accounts(accountNo text primary key, bankName text, accountHolderName text, balance real);";
         db.execSQL(accountTableQuery);
 
-        String transactionTableQuery = "create table transactions(transactionId integer primary key autoincrement, date text, accountNo text, expenseType text, amount real);";
+        String transactionTableQuery = "create table transactions(transactionId integer primary key autoincrement, date text, accountNo text, expenseType text, amount real, FOREIGN KEY (accountNo) REFERENCES accounts (accountNo) );";
         db.execSQL(transactionTableQuery);
 
 
