@@ -51,7 +51,7 @@ public class ApplicationTest{
     @Test
     public void addAccountTest (){
         expenseManager.addAccount("11111","NSB","PK",9000.0);
-        assertTrue(expenseManager.getAccountNumbersList().contains("001T"));
+        assertTrue(expenseManager.getAccountNumbersList().contains("11111"));
     }
 
 }
