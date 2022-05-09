@@ -64,8 +64,9 @@ public class ApplicationTest{
     public void addTransactionTest(){
         int noOfTransactions = expenseManager.getTransactionLogs().size();
         try {
-            expenseManager.updateAccountBalance("78945Z", 1, 1, 2000, ExpenseType.EXPENSE, "1000.0");
-            assertEquals(noOfTransactions +1,expenseManager.getTransactionLogs().size());
+            expenseManager.updateAccountBalance("78945Z", 9, 5, 2022, ExpenseType.EXPENSE, "1000.0");
+            expenseManager.updateAccountBalance("78945Z", 10, 5, 2022, ExpenseType.INCOME, "5000.0");
+            assertEquals(noOfTransactions + 2 ,expenseManager.getTransactionLogs().size());
         } catch (InvalidAccountException e) {
             e.printStackTrace();
         }
