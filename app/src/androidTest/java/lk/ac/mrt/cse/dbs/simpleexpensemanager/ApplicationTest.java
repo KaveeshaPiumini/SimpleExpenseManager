@@ -36,4 +36,22 @@ import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.ExpenseType;
  */
 public class ApplicationTest{
 
+    private static ExpenseManager expenseManager;
+
+    @BeforeClass
+    public static void createExpenseManager(){
+
+        try {
+            expenseManager = new PersistentDemoExpenseManager(ApplicationProvider.getApplicationContext());
+        } catch (ExpenseManagerException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void addAccountTest (){
+        expenseManager.addAccount("11111","NSB","PK",9000.0);
+        assertTrue(expenseManager.getAccountNumbersList().contains("001T"));
+    }
+
 }
